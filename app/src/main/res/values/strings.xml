@@ -3,4 +3,6 @@
     <string name="ranking">Rangliste</string>
     <string name="start">Start!</string>
     <string name="shoottheapple">Shoot the Apple</string>
+    <string name="points">Punkte</string>
+    <string name="life">Leben</string>
 </resources>
