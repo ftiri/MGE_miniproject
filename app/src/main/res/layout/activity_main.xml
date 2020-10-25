@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkgrey"
+    android:background="?attr/colorBackground"
     android:paddingBottom="5dp"
     tools:context=".MainActivity">
 
@@ -16,7 +16,7 @@
         android:layout_marginTop="80dp"
         android:gravity="center"
         android:text="@string/shoottheapple"
-        android:textColor="@color/colorPrimary"
+        android:textColor="?attr/colorPrimary"
         android:textSize="60sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -31,6 +31,8 @@
         android:layout_marginTop="80dp"
         android:layout_toStartOf="@id/welcome"
         android:text="@string/start"
+        android:textColor="?attr/colorAccent"
+        android:background="?attr/colorPrimaryDark"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
         tools:layout_editor_absoluteX="0dp" />
@@ -41,6 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
         android:text="@string/ranking"
+        android:textColor="?attr/colorAccent"
+        android:background="?attr/colorPrimaryDark"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/start_button"
         />
