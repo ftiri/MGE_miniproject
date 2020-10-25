@@ -12,7 +12,6 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
     private Button backToMainButton;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -25,5 +24,6 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivityForResult(intent, 1);
+
     }
 }

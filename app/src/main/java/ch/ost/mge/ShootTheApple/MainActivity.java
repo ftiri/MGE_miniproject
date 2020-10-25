@@ -6,25 +6,34 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener  {
     private Button startGame;
     private Button ranking;
 
     private Spinner themeSpinner;
     private Spinner languageSpinner;
 
+    int check = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
+        int theme = preferences.getInt("Theme", R.style.OstTheme);
+        setTheme(theme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         startGame = (Button) findViewById(R.id.start_button);
         startGame.setOnClickListener(this);
 
@@ -46,10 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(view.getId() == R.id.start_button){
             intent = new Intent(this, GameActivity.class);
+            startActivityForResult(intent, 1);
         }else{
             intent = new Intent(this, RankingActivity.class);
+            startActivityForResult(intent, 0);
         }
-        startActivityForResult(intent, 1);
+
 
 
     }
@@ -68,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 R.array.languageSelection, android.R.layout.simple_spinner_item);
         languageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         languageSpinner.setAdapter(languageAdapter);
+        languageSpinner.setSelection(0,false);
         languageSpinner.setOnItemSelectedListener(this);
     }
 
@@ -77,27 +89,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 R.array.themeSelection, android.R.layout.simple_spinner_item);
         themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         themeSpinner.setAdapter(themeAdapter);
+        themeSpinner.setSelection(0,false);
         themeSpinner.setOnItemSelectedListener(this);
+
+
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+    public void onItemSelected (AdapterView<?> parent, View view, int pos, long id){
 
-        switch(pos){
-            case 0:
-                setTheme(R.style.OstTheme);
-                break;
-            case 1:
-                setTheme(R.style.HsrTheme);
-                break;
-            case 2:
-                setTheme(R.style.DarkMode);
-                break;
-        }
+            SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
+            SharedPreferences.Editor editor = preferences.edit();
+            Intent intent = getIntent();
+            switch(pos){
+                case 0:
+                    editor.putInt("Theme", R.style.OstTheme);
+                    break;
+                case 1:
+                    editor.putInt("Theme", R.style.HsrTheme);
+                    break;
+                case 2:
+                    editor.putInt("Theme", R.style.DarkMode);
+                    break;
+            }
+
+            editor.apply();
+            finish();
+            startActivity(intent);
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        setTheme(R.style.DarkMode);
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == 1){
+            if(resultCode >= 0){
+               //TODO
+            }
+        }
+    }
+
+
 }
