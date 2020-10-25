@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/colorPrimaryOST</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkOST</item>
         <item name="colorAccent">@color/colorAccentOST</item>
-        <item name="colorBackground">"@color/colorBackgroundOST"</item>
+        <item name="colorBackground">@color/colorBackgroundOST</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
@@ -14,7 +14,7 @@
         <item name="colorPrimary">@color/colorPrimaryHSR</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkHSR</item>
         <item name="colorAccent">@color/colorAccentHSR</item>
-        <item name="colorBackground">"@color/colorBackgroundHSR"</item>
+        <item name="colorBackground">@color/colorBackgroundHSR</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
@@ -24,7 +24,7 @@
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkDark</item>
         <item name="colorAccent">@color/colorAccentDark</item>
-        <item name="colorBackground">"@color/colorBackgroundDark"</item>
+        <item name="colorBackground">@color/colorBackgroundDark</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>

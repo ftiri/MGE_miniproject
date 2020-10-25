@@ -5,4 +5,10 @@
     <string name="shoottheapple">Shoot the Apple</string>
     <string name="points">Punkte</string>
     <string name="life">Leben</string>
+
+    <string-array name="themeSelection">
+            <item>OST Theme</item>
+            <item>HSR Theme</item>
+            <item>Dark Theme</item>
+    </string-array>
 </resources>
