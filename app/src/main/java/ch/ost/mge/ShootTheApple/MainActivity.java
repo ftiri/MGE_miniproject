@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Spinner themeSpinner;
     private Spinner languageSpinner;
 
-    int check = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
