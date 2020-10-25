@@ -16,6 +16,8 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     private Button startGame;
+    private Button ranking;
+
     private Spinner themeSpinner;
     private Spinner languageSpinner;
 
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startGame = (Button) findViewById(R.id.start_button);
         startGame.setOnClickListener(this);
 
+        ranking = (Button)findViewById(R.id.ranking_button);
+        ranking.setOnClickListener(this);
+
         setupThemeDropdown();
         setupLanguageDropdown();
 
@@ -35,13 +40,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
+        Intent intent;
+
+        if(view.getId() == R.id.start_button){
+            intent = new Intent(this, GameActivity.class);
+        }else{
+            intent = new Intent(this, RankingActivity.class);
+        }
         startActivityForResult(intent, 1);
+
+
     }
+ 
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -70,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
-
 
         switch(pos){
             case 0:
