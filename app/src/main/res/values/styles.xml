@@ -20,7 +20,6 @@
     </style>
 
     <style name="DarkMode" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkDark</item>
         <item name="colorAccent">@color/colorAccentDark</item>

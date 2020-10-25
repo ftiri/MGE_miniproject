@@ -11,4 +11,12 @@
             <item>HSR Theme</item>
             <item>Dark Theme</item>
     </string-array>
+
+    <string-array name="languageSelection">
+        <item>Deutsch</item>
+        <item>Englisch</item>
+        <item>Serbisch</item>
+        <item>Rätoromanisch</item>
+    </string-array>
+
 </resources>

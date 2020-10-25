@@ -16,7 +16,8 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     private Button startGame;
-    private Spinner spinner;
+    private Spinner themeSpinner;
+    private Spinner languageSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +26,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startGame = (Button) findViewById(R.id.start_button);
         startGame.setOnClickListener(this);
 
-        spinner = (Spinner)findViewById(R.id.selectionThemeButton);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.themeSelection, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
+        setupThemeDropdown();
+        setupLanguageDropdown();
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             startGame.setEnabled(false);
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 0);
         }
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -51,8 +50,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void setupLanguageDropdown(){
+        languageSpinner = (Spinner)findViewById(R.id.selectionLanguage);
+        ArrayAdapter<CharSequence> languageAdapter = ArrayAdapter.createFromResource(this,
+                R.array.languageSelection, android.R.layout.simple_spinner_item);
+        languageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        languageSpinner.setAdapter(languageAdapter);
+        languageSpinner.setOnItemSelectedListener(this);
+    }
+
+    private void setupThemeDropdown() {
+        themeSpinner = (Spinner)findViewById(R.id.selectionThemeButton);
+        ArrayAdapter<CharSequence> themeAdapter = ArrayAdapter.createFromResource(this,
+                R.array.themeSelection, android.R.layout.simple_spinner_item);
+        themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        themeSpinner.setAdapter(themeAdapter);
+        themeSpinner.setOnItemSelectedListener(this);
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+
 
         switch(pos){
             case 0:
@@ -64,12 +82,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 2:
                 setTheme(R.style.DarkMode);
                 break;
-            default:
-                break;
         }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        setTheme(R.style.DarkMode);
     }
 }
