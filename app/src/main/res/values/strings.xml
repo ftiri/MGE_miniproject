@@ -8,15 +8,17 @@
     <string name="backButton">Zurück</string>
 
     <string-array name="themeSelection">
+            <item>Theme</item>
             <item>OST Theme</item>
             <item>HSR Theme</item>
             <item>Dark Theme</item>
     </string-array>
 
     <string-array name="languageSelection">
+        <item>Sprache</item>
         <item>Deutsch</item>
-        <item>Englisch</item>
-        <item>Serbisch</item>
+        <item>English</item>
+        <item>Srpski</item>
         <item>Rätoromanisch</item>
     </string-array>
 

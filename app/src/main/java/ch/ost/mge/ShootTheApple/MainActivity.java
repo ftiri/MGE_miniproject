@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener  {
     private Button startGame;
@@ -59,9 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent = new Intent(this, RankingActivity.class);
             startActivityForResult(intent, 0);
         }
-
-
-
     }
  
 
@@ -90,32 +90,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         themeSpinner.setAdapter(themeAdapter);
         themeSpinner.setSelection(0,false);
         themeSpinner.setOnItemSelectedListener(this);
-
-
     }
 
     @Override
     public void onItemSelected (AdapterView<?> parent, View view, int pos, long id){
-
+        if(parent.getId() == R.id.selectionThemeButton) {
             SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
             SharedPreferences.Editor editor = preferences.edit();
-            Intent intent = getIntent();
-            switch(pos){
-                case 0:
+            switch (pos) {
+                case 1:
                     editor.putInt("Theme", R.style.OstTheme);
                     break;
-                case 1:
+                case 2:
                     editor.putInt("Theme", R.style.HsrTheme);
                     break;
-                case 2:
+                case 3:
                     editor.putInt("Theme", R.style.DarkMode);
                     break;
             }
-
             editor.apply();
-            finish();
-            startActivity(intent);
 
+        } else{
+            Locale locale;
+            Configuration configuration = new Configuration();
+            switch(pos) {
+                case 1:
+                    locale = new Locale("");
+                    Locale.setDefault(locale);
+
+                    configuration.locale = locale;
+
+                    getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+                    break;
+                case 2:
+                    locale = new Locale("en");
+                    Locale.setDefault(locale);
+
+                    configuration.locale = locale;
+
+                    getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+                    break;
+                case 3:
+                    locale = new Locale("srb");
+                    Locale.setDefault(locale);
+
+                    configuration.locale = locale;
+
+                    getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+                    break;
+                case 4:
+                    locale = new Locale("ro");
+                    Locale.setDefault(locale);
+
+                    configuration.locale = locale;
+
+                    getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+                    break;
+            }
+        }
+        finish();
+        startActivity(getIntent());
     }
 
     @Override

@@ -6,8 +6,6 @@ import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,8 +38,6 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
         camera = (CameraView) findViewById(R.id.camera);
         playMat = (ViewGroup) findViewById(R.id.play_mat);
@@ -50,7 +46,7 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
         lifeView = (TextView) findViewById(R.id.lifes);
         points = 0;
         lifes = 3;
-        lifeTime = 10000;
+        lifeTime = 5000;
         camera.setOneShotPreviewCallback(this);
         playGame();
     }
@@ -77,10 +73,10 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
             spawn(generator.nextFloat());
         }
         removeSymbols();
-        //moveSymbols();
+        moveSymbols();
         refreshScreen();
         if(!lost()) {
-            handler.postDelayed(this, 5000);
+            handler.postDelayed(this, 2000);
             camera.setOneShotPreviewCallback(this);
         }
     }
@@ -98,8 +94,25 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
         finish();
     }
 
-    //private void moveSymbols() {
-    //}
+    private void moveSymbols() {
+        for(int i = 0; i < playMat.getChildCount(); i++) {
+            ImageView symbol = (ImageView) playMat.getChildAt(i);
+            FrameLayout.LayoutParams symbolParameters = (FrameLayout.LayoutParams) symbol.getLayoutParams();
+            do {
+                if(symbolParameters.leftMargin < playMat.getWidth() / 2) {
+                    symbolParameters.leftMargin += generator.nextInt(playMat.getWidth() / 2);
+                } else {
+                    symbolParameters.leftMargin -= generator.nextInt(playMat.getWidth() / 2);
+                }
+                if(symbolParameters.topMargin < playMat.getHeight() / 2) {
+                    symbolParameters.topMargin += generator.nextInt(playMat.getHeight() / 2);
+                } else {
+                    symbolParameters.topMargin -= generator.nextInt(playMat.getHeight() / 2);
+                }
+            } while(symbolParameters.leftMargin > playMat.getWidth() - symbolParameters.width || symbolParameters.topMargin > playMat.getHeight() - symbolParameters.height || symbolParameters.leftMargin < 0 || symbolParameters.topMargin < 0);
+            symbol.setLayoutParams(symbolParameters);
+        }
+    }
 
     private void removeSymbols() {
         for(int i = 0; i < playMat.getChildCount(); i++) {
@@ -117,14 +130,12 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
 
     private void spawn(float number) {
         int index = generateIndex(number);
-        int width = playMat.getWidth();
-        int height = playMat.getHeight();
 
         int symbolWidth = Math.round(density * SIZES[index][0]);
         int symbolHeight = Math.round(density * SIZES[index][1]);
 
-        int left = generator.nextInt(width - symbolWidth);
-        int top = generator.nextInt(height - symbolHeight);
+        int left = generator.nextInt(playMat.getWidth() - symbolWidth);
+        int top = generator.nextInt(playMat.getHeight() - symbolHeight);
 
         ImageView symbol = new ImageView(this);
         symbol.setImageResource(PICTURES[index]);
@@ -165,7 +176,9 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
         if(!(boolean) view.getTag(R.bool.isAndroid)) {
             points += 1000;
         } else {
-            lifes--;
+            if(--lifes < 1) {
+                gameOver();
+            };
         }
         playMat.removeView(view);
         refreshScreen();
