@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Project_ShootTheApple</string>
-    <string name="ranking">Rangliste</string>
+    <string name="ranking">Rangaziun</string>
     <string name="start">Start!</string>
     <string name="shoottheapple">Shoot the Apple</string>
-    <string name="points">Punkte</string>
-    <string name="life">Leben</string>
-    <string name="backButton">Zurück</string>
+    <string name="points">Puncs</string>
+    <string name="life">Veta</string>
+    <string name="backButton">Anavos</string>
 
     <string-array name="themeSelection">
             <item>Theme</item>
@@ -15,11 +15,11 @@
     </string-array>
 
     <string-array name="languageSelection">
-        <item>Sprache</item>
-        <item>Deutsch</item>
-        <item>English</item>
-        <item>Srpski</item>
-        <item>Rätoromanisch</item>
+        <item>Lungatg</item>
+        <item>Tudestg</item>
+        <item>Engles</item>
+        <item>Serb</item>
+        <item>Romontsch</item>
     </string-array>
 
 </resources>
