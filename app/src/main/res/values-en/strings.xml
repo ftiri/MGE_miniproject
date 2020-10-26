@@ -1,0 +1,14 @@
+<resources>
+    <string name="ranking">Ranking</string>
+    <string name="points">Points</string>
+    <string name="life">Lifes</string>
+    <string name="backButton">Back</string>
+
+    <string-array name="languageSelection">
+        <item>Language</item>
+        <item>Deutsch</item>
+        <item>English</item>
+        <item>Srpski</item>
+        <item>Rätoromanisch</item>
+    </string-array>
+</resources>

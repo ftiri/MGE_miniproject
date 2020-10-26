@@ -1,0 +1,23 @@
+<resources>
+    <string name="ranking">Rangliste</string>
+    <string name="start">Start!</string>
+    <string name="shoottheapple">Shoot the Apple</string>
+    <string name="points">Punkte</string>
+    <string name="life">Leben</string>
+    <string name="backButton">Zurück</string>
+
+    <string-array name="themeSelection">
+            <item>Theme</item>
+            <item>OST Theme</item>
+            <item>HSR Theme</item>
+            <item>Dark Theme</item>
+    </string-array>
+
+    <string-array name="languageSelection">
+        <item>Deutsch</item>
+        <item>English</item>
+        <item>Srpski</item>
+        <item>Rätoromanisch</item>
+    </string-array>
+
+</resources>
