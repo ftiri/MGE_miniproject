@@ -5,6 +5,8 @@
     <string name="points">Punkte</string>
     <string name="life">Leben</string>
     <string name="backButton">Zurück</string>
+    <string name="newHighscore">Du hast einen neuen Highscore erreicht. Trage deinen Namen ein.</string>
+    <string name="save">speichern</string>
 
     <string-array name="themeSelection">
             <item>Theme</item>

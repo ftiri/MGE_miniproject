@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         finish();
+        overridePendingTransition(0, 0);
         startActivity(getIntent());
     }
 

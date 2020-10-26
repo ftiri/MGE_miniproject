@@ -1,5 +1,7 @@
 package ch.ost.mge.ShootTheApple;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
@@ -90,8 +92,18 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
     }
 
     private void gameOver() {
-        setResult(points);
-        finish();
+        SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
+        int minHighscore = preferences.getInt("minHighscore", 0);
+        if(points > minHighscore) {
+            Intent intent = new Intent(this, RankingActivity.class);
+            intent.putExtra("points", points);
+            finish();
+            startActivity(intent);
+        } else {
+            finish();
+        }
+//        setResult(points);
+//        finish();
     }
 
     private void moveSymbols() {
