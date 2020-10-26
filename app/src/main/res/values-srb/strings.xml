@@ -1,25 +1,25 @@
 <resources>
-    <string name="ranking">Rangliste</string>
-    <string name="start">Start!</string>
-    <string name="shoottheapple">Shoot the Apple</string>
-    <string name="points">Punkte</string>
-    <string name="life">Leben</string>
-    <string name="backButton">Zurück</string>
-    <string name="newHighscore">Du hast einen neuen Highscore erreicht. Trage deinen Namen ein.</string>
-    <string name="save">speichern</string>
+    <string name="ranking">Rang Lista</string>
+    <string name="start">Počni!</string>
+    <string name="points">Bodovi</string>
+    <string name="life">Životi</string>
+    <string name="backButton">Nazad</string>
+    <string name="newHighscore">Imaš novi Rekord.\nUkucaj svoje Ime.</string>
+    <string name="save">sačuvaj</string>
 
     <string-array name="themeSelection">
-            <item>Theme</item>
-            <item>OST Theme</item>
-            <item>HSR Theme</item>
-            <item>Dark Theme</item>
+        <item>Theme</item>
+        <item>OST Theme</item>
+        <item>HSR Theme</item>
+        <item>Dark Theme</item>
     </string-array>
 
     <string-array name="languageSelection">
-        <item>Deutsch</item>
-        <item>English</item>
+        <item>Jezik</item>
+        <item>Nemački</item>
+        <item>Engleski</item>
         <item>Srpski</item>
-        <item>Rätoromanisch</item>
+        <item>Retoromanski</item>
     </string-array>
 
 </resources>

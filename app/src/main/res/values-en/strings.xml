@@ -3,14 +3,14 @@
     <string name="points">Points</string>
     <string name="life">Lifes</string>
     <string name="backButton">Back</string>
-    <string name="newHighscore">Du hast einen neuen Highscore erreicht. Trage deinen Namen ein.</string>
-    <string name="save">speichern</string>
+    <string name="newHighscore">You have a new Highscore.\nEnter your name</string>
+    <string name="save">save</string>
 
     <string-array name="languageSelection">
         <item>Language</item>
         <item>German</item>
         <item>English</item>
         <item>Srpski</item>
-        <item>Rätoromanisch</item>
+        <item>Rhaeto-Romanic</item>
     </string-array>
 </resources>
