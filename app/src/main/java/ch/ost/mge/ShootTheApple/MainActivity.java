@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         languageSpinner = (Spinner)findViewById(R.id.selectionLanguage);
         ArrayAdapter<CharSequence> languageAdapter = ArrayAdapter.createFromResource(this,
                 R.array.languageSelection, android.R.layout.simple_spinner_item);
-        languageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        languageAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         languageSpinner.setAdapter(languageAdapter);
         languageSpinner.setSelection(0,false);
         languageSpinner.setOnItemSelectedListener(this);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         themeSpinner = (Spinner)findViewById(R.id.selectionThemeButton);
         ArrayAdapter<CharSequence> themeAdapter = ArrayAdapter.createFromResource(this,
                 R.array.themeSelection, android.R.layout.simple_spinner_item);
-        themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        themeAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         themeSpinner.setAdapter(themeAdapter);
         themeSpinner.setSelection(0,false);
         themeSpinner.setOnItemSelectedListener(this);

@@ -11,8 +11,8 @@
     <color name="colorBackgroundHSR">#FFFFFF</color>
 
     <color name="colorPrimaryDark">#AFB1B3</color>
-    <color name="colorPrimaryDarkDark">#292626</color>
-    <color name="colorAccentDark">#D8650C</color>
-    <color name="colorBackgroundDark">#595959</color>
+    <color name="colorPrimaryDarkDark">#383440</color>
+    <color name="colorAccentDark">#4CAF50</color>
+    <color name="colorBackgroundDark">#5E5E5E</color>
 
 </resources>
