@@ -3,6 +3,8 @@
     <string name="points">Puncs</string>
     <string name="life">Veta</string>
     <string name="backButton">Anavos</string>
+    <string name="newHighscore">Ti has contenschiu in niev record. Dai en tiu num</string>
+    <string name="save">arcunar</string>
 
     <string-array name="languageSelection">
         <item>Lungatg</item>
@@ -11,5 +13,6 @@
         <item>Serb</item>
         <item>Romontsch</item>
     </string-array>
+
 
 </resources>

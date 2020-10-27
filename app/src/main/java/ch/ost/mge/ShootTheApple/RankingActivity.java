@@ -29,6 +29,9 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
+        int theme = preferences.getInt("Theme", R.style.OstTheme);
+        setTheme(theme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
         backToMainButton = (Button)findViewById(R.id.backToMainButton);

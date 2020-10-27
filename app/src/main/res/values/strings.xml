@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Shoot The Apple</string>
+    <string name="app_name" translatable="false">Shoot The Apple</string>
     <string name="ranking">Rangliste</string>
     <string name="start">Start!</string>
-    <string name="shoottheapple">Shoot the Apple</string>
+    <string name="shoottheapple" translatable="false">Shoot the Apple</string>
     <string name="points">Punkte</string>
     <string name="life">Leben</string>
     <string name="backButton">Zurück</string>
