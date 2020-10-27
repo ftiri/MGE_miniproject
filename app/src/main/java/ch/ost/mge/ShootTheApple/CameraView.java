@@ -6,8 +6,6 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import androidx.annotation.NonNull;
-
 import java.io.IOException;
 
 public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
@@ -40,10 +38,10 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     @Override
-    public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int w, int h, int i2) {
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int width, int height, int i) {
         try {
             Camera.Parameters parameters = camera.getParameters();
-            parameters.setPreviewSize(w, h);
+            parameters.setPreviewSize(width, height);
             camera.setParameters(parameters);
         } catch(Exception e) {
         }

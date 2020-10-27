@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,10 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(view.getId() == R.id.start_button){
             intent = new Intent(this, GameActivity.class);
-            startActivityForResult(intent, 1);
+            startActivity(intent);
         }else{
             intent = new Intent(this, RankingActivity.class);
-            startActivityForResult(intent, 0);
+            startActivity(intent);
         }
     }
  
@@ -157,16 +156,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == 1){
-            if(resultCode >= 0){
-               //TODO
-            }
-        }
-    }
-
-
 }

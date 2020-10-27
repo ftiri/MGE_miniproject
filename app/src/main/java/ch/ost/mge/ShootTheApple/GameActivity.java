@@ -185,10 +185,8 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
     public void onClick(View view) {
         if(!(boolean) view.getTag(R.bool.isAndroid)) {
             points += 1000;
-        } else {
-            if(--lifes < 1) {
-                gameOver();
-            };
+        } else if(--lifes < 1) {
+            gameOver();
         }
         playMat.removeView(view);
         refreshScreen();
