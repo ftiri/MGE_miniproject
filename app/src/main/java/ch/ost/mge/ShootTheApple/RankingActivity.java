@@ -125,6 +125,9 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        if(playerName.getText().toString().length() < 1 && newHighscore.getVisibility() == View.VISIBLE) {
+            return;
+        }
         if(v.getId() == R.id.backToMainButton) {
             finish();
         } else {
