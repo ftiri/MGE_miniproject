@@ -3,7 +3,6 @@ package ch.ost.mge.ShootTheApple;
 import android.content.Context;
 import android.hardware.Camera;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -47,7 +46,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
             parameters.setPreviewSize(w, h);
             camera.setParameters(parameters);
         } catch(Exception e) {
-            Log.w("CameraView", "Exception:", e);
         }
         camera.startPreview();
     }

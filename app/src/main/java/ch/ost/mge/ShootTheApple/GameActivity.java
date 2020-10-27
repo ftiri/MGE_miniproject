@@ -102,8 +102,6 @@ public class GameActivity extends AppCompatActivity implements Camera.PreviewCal
         } else {
             finish();
         }
-//        setResult(points);
-//        finish();
     }
 
     private void moveSymbols() {

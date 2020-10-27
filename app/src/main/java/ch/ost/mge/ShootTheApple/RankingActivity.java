@@ -115,7 +115,7 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
 
             SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
             SharedPreferences.Editor editor = preferences.edit();
-            if(rankingScores.length == 10) {
+            if(rankingScores.length > 9) {
                 editor.putInt("minHighscore", rankingScores[rankingScores.length - 1]);
             }
         }
