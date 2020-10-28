@@ -116,10 +116,11 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
             }
             outputStreamWriter.close();
 
-            SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
-            SharedPreferences.Editor editor = preferences.edit();
             if(rankingScores.length > 9) {
+                SharedPreferences preferences = getSharedPreferences("ShootTheApple", 0);
+                SharedPreferences.Editor editor = preferences.edit();
                 editor.putInt("minHighscore", rankingScores[rankingScores.length - 1]);
+                editor.apply();
             }
         }
         catch (IOException e) {
